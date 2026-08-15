@@ -1,0 +1,9 @@
+gr-dspira preserves source and generated scaffolding from several historical
+GNU Radio prototypes. Rights and attribution remain with their respective
+holders as stated in the individual files and commit history.
+
+An archival review found GNU GPL notices in 87 historical files. Their headers
+include 78 Free Software Foundation copyright statements and nine Python files
+with the original "<+YOU OR YOUR COMPANY+>" template placeholder. The GPL-3.0
+text in LICENSE is provided for reference; it does not replace file-level
+notices or assign ownership where the old scaffolding did not do so.
