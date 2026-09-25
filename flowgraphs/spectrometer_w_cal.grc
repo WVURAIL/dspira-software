@@ -32,6 +32,14 @@ options:
     state: enabled
 
 blocks:
+- name: import_output_paths
+  id: import
+  parameters:
+    imports: import os
+  states:
+    coordinate: [8, 160]
+    rotation: 0
+    state: enabled
 - name: N_long_integration
   id: variable
   parameters:
@@ -299,7 +307,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/home/kbandura/Spectra2021/"'
+    value: os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "spectrum_")
   states:
     bus_sink: false
     bus_source: false

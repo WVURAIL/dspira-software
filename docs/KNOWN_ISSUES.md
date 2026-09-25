@@ -1,21 +1,42 @@
-# Compatibility findings at migration
+# Compatibility and test status
 
-The seven applications were moved without changing their contents. A GNU Radio
-3.10.9.2 generation check found existing errors in all seven files. This check
-used the shared repository's block definitions and did not operate a receiver.
+All seven classroom applications generate successfully with GNU Radio 3.10.9.2.
+The generated Python also passes syntax checks. These checks do not start a receiver or verify calibration.
 
-| Application | Observed generation errors |
+## Corrections to the migration report
+
+The earlier unconnected-port errors came from missing Osmocom and LimeSDR block definitions in the test environment.
+The receiver connections were already present in the saved flowgraphs.
+Both LimeSDR interferometers also had a missing save-toggle option. That default is now fixed.
+
+The spectrometer and interferometer output prefixes no longer point to an author's home directory.
+They default to the current user's home directory, with separate filename prefixes for each output.
+Set `DSPIRA_OUTPUT_DIR` to an existing writable directory to choose another location.
+The experimental lightning detectors still write triggered files to their working directory.
+
+## Reproduced generation environment
+
+Checked September 25, 2026:
+
+| Component | Version or revision |
 | --- | --- |
-| Calibrated spectrometer | Five unconnected input-port errors |
-| Adding and multiplying interferometers | An invalid chooser default and two unconnected input-port errors each |
-| Amplitude and standard-deviation lightning detectors | Three unconnected input-port errors each |
-| Coincident and cross-correlation lightning detectors | Six unconnected input-port errors each |
+| Ubuntu | 24.04 |
+| GNU Radio | 3.10.9.2 |
+| gr-osmosdr block definitions | Ubuntu package 0.2.5-2.1build3 |
+| gr-limesdr block definitions | Ubuntu package 3.0.1.10.69-3build6 |
+| Shared radio astronomy blocks | `cdbda4f577b538c0750b882241f8a36ecc2e88f8` |
 
-Several output paths also refer to an original author's home directory. Change
-these to writable folders before running an application. Receiver drivers and
-hardware were not validated during the repository split.
+The receiver definitions came from Ubuntu packages. Loading those definitions does not test their drivers or hardware.
+CI now repeats generation and syntax checks for all seven applications and reports missing definitions explicitly.
 
-The catalog check in CI verifies application structure. It does not establish
-that GNU Radio can generate a runnable program or that a telescope is calibrated.
-These compatibility findings need a separate application repair and receiver test.
-The migration hashes in `migration.json` distinguish existing behavior from later changes.
+## Still needs hardware testing
+
+- Install the shared library and appropriate receiver driver, then verify acquisition with the intended SDR.
+- Check receiver settings, sample rates, gains, recording, and saved data.
+- Validate hot-load and cold-sky calibration against the documented sequence.
+- Record the tested receiver, amplifier, operating system, dependency versions, and test date.
+
+The two interferometers and four lightning detectors remain experimental pending equipment tests.
+A successful generation check is not a classroom-ready certification.
+Track the remaining work in [issue 1](https://github.com/WVURAIL/dspira-software/issues/1).
+The original migration hashes remain in `migration.json` for provenance.

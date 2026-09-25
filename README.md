@@ -17,8 +17,9 @@ Physical designs belong in [dspira-hardware](https://github.com/WVURAIL/dspira-h
 | `interferometer_simpleSpectrometer_Lime_multiplying.grc` | Two-input multiplying interferometer for LimeSDR |
 | `lightning_detector_*.grc` | Four experimental lightning-detection variants |
 
-The initial migration preserves all seven files unchanged. It is not a new
-hardware qualification. Read [known limitations](docs/KNOWN_ISSUES.md) before
+The original migration hashes are preserved in `docs/migration.json`.
+Subsequent compatibility fixes pass generation checks but are not hardware qualification.
+Read [known limitations](docs/KNOWN_ISSUES.md) before
 using these applications with a class.
 
 ## Get the applications
@@ -34,8 +35,19 @@ and the driver for your receiver first. The maintained shared library targets
 GNU Radio 3.10. The source baseline for this extraction is `9de98c9c8a281293792ae4dfc3910b6dc6c15c81`.
 Existing GNU Radio 3.8 instructions belong to the older `gr38` release line.
 
-Set output folders, receiver settings, and calibration values for your own
-computer. Do not run an application unchanged without reviewing those settings.
+Review receiver settings and calibration values before running an application.
+The spectrometer and interferometers save CSV files in your home directory by default.
+Their filename prefixes distinguish spectra, individual horns, and correlation outputs.
+To choose another folder before opening GNU Radio Companion:
+
+```sh
+mkdir -p "$HOME/dspira-data"
+export DSPIRA_OUTPUT_DIR="$HOME/dspira-data"
+gnuradio-companion
+```
+
+The selected folder must exist and be writable. You can also edit the `prefix` variables in the flowgraph.
+Experimental lightning detectors save triggered files in their working directory.
 
 To update this application checkout, run `git pull --ff-only`. Update the shared
 library separately when its release notes require it, and rebuild it afterward.
@@ -50,6 +62,21 @@ Lesson and worksheet contributions belong in [dspira](https://github.com/WVURAIL
 
 Run `python3 scripts/check_flowgraphs.py` to check the application catalog.
 This validates file structure and dependency declarations without operating a receiver.
+
+On Ubuntu 24.04, install generation dependencies with:
+
+```sh
+sudo apt-get install gnuradio gr-osmosdr gr-limesdr python3-yaml
+```
+
+Then run `scripts/check_generation.py` with the shared block definitions on `GRC_BLOCKS_PATH`:
+
+```sh
+PYTHONNOUSERSITE=1 GRC_BLOCKS_PATH=/path/to/gr-radio_astro/grc /usr/bin/python3 scripts/check_generation.py
+```
+
+This generates each application separately and checks its Python syntax. It does not open receiver hardware.
+Use the distribution Python environment; incompatible user-installed NumPy versions can prevent GNU Radio from importing.
 
 ## History and old links
 

@@ -32,6 +32,14 @@ options:
     state: enabled
 
 blocks:
+- name: import_output_paths
+  id: import
+  parameters:
+    imports: import os
+  states:
+    coordinate: [8, 160]
+    rotation: 0
+    state: enabled
 - name: N_long_integration
   id: variable
   parameters:
@@ -125,7 +133,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/home/john/dspira_2021/interferometer_data/test_files/hornA/"'
+    value: os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "hornA_")
   states:
     bus_sink: false
     bus_source: false
@@ -137,7 +145,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/home/john/dspira_2021/interferometer_data/test_files/hornB/"'
+    value: os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "hornB_")
   states:
     bus_sink: false
     bus_source: false
@@ -149,7 +157,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/home/john/dspira_2021/interferometer_data/test_files/magnitude/"'
+    value: os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "magnitude_")
   states:
     bus_sink: false
     bus_source: false
@@ -161,7 +169,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '"/home/john/dspira_2021/interferometer_data/test_files/phase/"'
+    value: os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "phase_")
   states:
     bus_sink: false
     bus_source: false
@@ -211,6 +219,7 @@ blocks:
     label4: ''
     labels: '[]'
     num_opts: '2'
+    option0: '"False"'
     option1: '"True"'
     option2: '2'
     option3: '3'
