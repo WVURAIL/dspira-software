@@ -15,14 +15,19 @@ jobs:
       - name: Install GNU Radio and receiver block definitions
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gnuradio gr-osmosdr gr-limesdr python3-yaml
-      - uses: actions/checkout@v5
-        with:
-          repository: WVURAIL/gr-radio_astro
-          ref: cdbda4f577b538c0750b882241f8a36ecc2e88f8
-          path: shared-blocks
+          sudo apt-get install -y --no-install-recommends gnuradio-dev gr-osmosdr gr-limesdr cmake g++ python3-yaml python3-h5py python3-matplotlib
+      - name: Build, test, and install DSPIRA blocks
+        run: |
+          cmake -S . -B build -DPYTHON_EXECUTABLE=/usr/bin/python3
+          cmake --build build
+          ctest --test-dir build --output-on-failure
+          sudo cmake --install build
+          /usr/bin/python3 -c "from gnuradio import dspira; print(dspira.__file__)"
+        env:
+          PYTHONNOUSERSITE: "1"
+          MPLBACKEND: Agg
       - name: Generate and syntax-check all classroom applications
         run: /usr/bin/python3 scripts/check_generation.py
         env:
           PYTHONNOUSERSITE: "1"
-          GRC_BLOCKS_PATH: ${{ github.workspace }}/shared-blocks/grc
+          GRC_BLOCKS_PATH: ${{ github.workspace }}/grc

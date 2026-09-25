@@ -13,7 +13,7 @@ def check_graph(platform, path, output):
     missing = sorted(required - platform.blocks.keys())
     if missing:
         raise ValueError("Missing block definitions: " + ", ".join(missing)
-                         + ". Install receiver plugins and set GRC_BLOCKS_PATH for shared blocks.")
+                         + ". Install receiver plugins and set GRC_BLOCKS_PATH for DSPIRA blocks.")
     graph, generated = platform.load_and_generate_flow_graph(str(path), str(output))
     if graph is None:
         raise ValueError("GNU Radio generation failed")

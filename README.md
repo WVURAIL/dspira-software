@@ -3,9 +3,8 @@
 Classroom telescope applications for DSPIRA. Start with the
 [software guide](https://wvurail.org/dspira/software/) on the lessons website.
 
-This repository owns the classroom flowgraphs. The reusable GNU Radio blocks
-remain in [gr-radio_astro](https://github.com/WVURAIL/gr-radio_astro).
-Install that library once; this repository does not include another copy.
+This repository contains the classroom flowgraphs and all twelve DSPIRA processing blocks.
+Install them together from this checkout. A research software checkout is not required.
 Physical designs belong in [dspira-hardware](https://github.com/WVURAIL/dspira-hardware).
 
 ## Applications
@@ -22,18 +21,32 @@ Subsequent compatibility fixes pass generation checks but are not hardware quali
 Read [known limitations](docs/KNOWN_ISSUES.md) before
 using these applications with a class.
 
-## Get the applications
+## Install DSPIRA software
+
+These instructions target GNU Radio 3.10 on Ubuntu. Install the dependencies first:
+
+```sh
+sudo apt-get update
+sudo apt-get install gnuradio-dev gr-osmosdr airspy cmake g++ git python3-h5py python3-matplotlib python3-yaml
+```
+
+LimeSDR applications also require `gr-limesdr` and a compatible receiver.
+Then clone, build, test, and install:
 
 ```sh
 git clone https://github.com/WVURAIL/dspira-software.git
 cd dspira-software
+cmake -S . -B build -DPYTHON_EXECUTABLE=/usr/bin/python3
+cmake --build build
+ctest --test-dir build --output-on-failure
+sudo cmake --install build
+python3 -c "from gnuradio import dspira; print(dspira.__file__)"
 ```
 
-Open a file from `flowgraphs/` in GNU Radio Companion. Install the
-[shared blocks](https://github.com/WVURAIL/gr-radio_astro#installing-from-source)
-and the driver for your receiver first. The maintained shared library targets
-GNU Radio 3.10. The source baseline for this extraction is `9de98c9c8a281293792ae4dfc3910b6dc6c15c81`.
-Existing GNU Radio 3.8 instructions belong to the older `gr38` release line.
+Restart GNU Radio Companion and open `flowgraphs/spectrometer_w_cal.grc`.
+The processing blocks appear in its **DSPIRA** category.
+The application files and block implementations have one maintained home here.
+Older GNU Radio 3.8 instructions apply only to historical releases.
 
 Review receiver settings and calibration values before running an application.
 The spectrometer and interferometers save CSV files in your home directory by default.
@@ -49,15 +62,14 @@ gnuradio-companion
 The selected folder must exist and be writable. You can also edit the `prefix` variables in the flowgraph.
 Experimental lightning detectors save triggered files in their working directory.
 
-To update this application checkout, run `git pull --ff-only`. Update the shared
-library separately when its release notes require it, and rebuild it afterward.
-A flowgraph edit does not require rebuilding the library.
+Before updating, preserve local receiver settings and edited flowgraphs.
+Run `git pull --ff-only`, then repeat the build, test, and install commands above.
 
 ## Contribute
 
 Open a pull request here for classroom application changes. Include the GNU Radio
 version, receiver model, and a description of the test you performed. Use
-`gr-radio_astro` for reusable block changes and `dspira-hardware` for board designs.
+this repository for DSPIRA block changes and `dspira-hardware` for board designs.
 Lesson and worksheet contributions belong in [dspira](https://github.com/WVURAIL/dspira).
 
 Run `python3 scripts/check_flowgraphs.py` to check the application catalog.
@@ -69,10 +81,10 @@ On Ubuntu 24.04, install generation dependencies with:
 sudo apt-get install gnuradio gr-osmosdr gr-limesdr python3-yaml
 ```
 
-Then run `scripts/check_generation.py` with the shared block definitions on `GRC_BLOCKS_PATH`:
+After installing DSPIRA, run `scripts/check_generation.py` with this checkout's block definitions:
 
 ```sh
-PYTHONNOUSERSITE=1 GRC_BLOCKS_PATH=/path/to/gr-radio_astro/grc /usr/bin/python3 scripts/check_generation.py
+PYTHONNOUSERSITE=1 GRC_BLOCKS_PATH="$PWD/grc" /usr/bin/python3 scripts/check_generation.py
 ```
 
 This generates each application separately and checks its Python syntax. It does not open receiver hardware.
@@ -81,11 +93,13 @@ Use the distribution Python environment; incompatible user-installed NumPy versi
 ## History and old links
 
 The application directory history was extracted with `git subtree split`.
-The seven source files were moved from `gr-radio_astro/examples/DSPIRA/` to
-`flowgraphs/`. They are no longer duplicated on the shared library's main branch.
+The seven source files were moved from the former `gr-radio_astro/examples/DSPIRA/` directory to `flowgraphs/`.
+The twelve DSPIRA blocks and their existing tests followed in a second migration.
+They were removed from the research repository's main branch.
 See [the migration record](docs/migration.json) for original hashes and the
 [link map](https://wvurail.org/dspira/repository-map/) for replacement addresses.
 Old tagged releases and commit links remain available in the original repository.
+See [block ownership and compatibility](docs/BLOCKS.md) for the remaining identifier conventions.
 
 ## DSP lesson examples
 

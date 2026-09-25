@@ -1,0 +1,206 @@
+{
+  "source_repository": "WVURAIL/gr-radio_astro",
+  "source_revision": "cdbda4f577b538c0750b882241f8a36ecc2e88f8",
+  "date": "2026-09-25",
+  "notes": "Python implementations are unchanged. GRC identifiers remain compatible; generated imports use gnuradio.dspira.",
+  "files": [
+    {
+      "source": "python/radio_astro/chart_recorder.py",
+      "destination": "python/gnuradio/dspira/chart_recorder.py",
+      "source_sha256": "8f52bc85eec399316202c817bdbcb8451109dd34b643506b5db11e72478eaa32",
+      "destination_sha256": "8f52bc85eec399316202c817bdbcb8451109dd34b643506b5db11e72478eaa32"
+    },
+    {
+      "source": "grc/radio_astro_chart_recorder.block.yml",
+      "destination": "grc/radio_astro_chart_recorder.block.yml",
+      "source_sha256": "4738c854cec9fe63fcd66a7a0124cfd24b3b504e72cb81c7ef915182db441a3c",
+      "destination_sha256": "160f2f46b48f2d0be9ed3accc59b8786d1f51ed6f516b0c22616f59fb35357b8"
+    },
+    {
+      "source": "python/radio_astro/qa_chart_recorder.py",
+      "destination": "tests/qa_chart_recorder.py",
+      "source_sha256": "77734fa037272ecaa0711346864e707d2704ae663f53f0eded1b800e9bc72428",
+      "destination_sha256": "cfcf56edd89b5b621f637dfe0cd82226299ffc9bf6d5d0fa03fac502f6a0258a"
+    },
+    {
+      "source": "python/radio_astro/comparator.py",
+      "destination": "python/gnuradio/dspira/comparator.py",
+      "source_sha256": "dddefaead1414d94c0ad0a3ce00ed350e8a9122265fd75f8791d06f77c93c81d",
+      "destination_sha256": "dddefaead1414d94c0ad0a3ce00ed350e8a9122265fd75f8791d06f77c93c81d"
+    },
+    {
+      "source": "grc/radio_astro_comparator.block.yml",
+      "destination": "grc/radio_astro_comparator.block.yml",
+      "source_sha256": "908825664bbc4880ac742dc09dbf313c0fc75020d27e98b50ba25e6000c184fb",
+      "destination_sha256": "255b0a97e9f8dd4cbbc6444d232c85f4c74eba1743e4ae263d24d09d3d602685"
+    },
+    {
+      "source": "python/radio_astro/correlate.py",
+      "destination": "python/gnuradio/dspira/correlate.py",
+      "source_sha256": "f4f3257cdcf1839d3e9038a9f52eefbe00c8b5771a756aa1b9d6c1ea57b0da8a",
+      "destination_sha256": "f4f3257cdcf1839d3e9038a9f52eefbe00c8b5771a756aa1b9d6c1ea57b0da8a"
+    },
+    {
+      "source": "grc/radio_astro_correlate.block.yml",
+      "destination": "grc/radio_astro_correlate.block.yml",
+      "source_sha256": "1f0ba57e3f815f34256a98b5a59402c1abdc4257ae0113c1b027c0b77b378349",
+      "destination_sha256": "1929d177807816f178f64c017dd1955c2fc873a7a6e75a73a61fdd59b4a71509"
+    },
+    {
+      "source": "python/radio_astro/qa_correlate.py",
+      "destination": "tests/qa_correlate.py",
+      "source_sha256": "3b93553ac092724666e18f0f732bd8ec6ad1631a8e1a588f685fc5174d1773b1",
+      "destination_sha256": "171aca873865807131dd23bfc3cd322d8e1dc883985eb498d155b8fc261a97cc"
+    },
+    {
+      "source": "python/radio_astro/csv_filesink.py",
+      "destination": "python/gnuradio/dspira/csv_filesink.py",
+      "source_sha256": "15059badf5a802de3473e6b02622de9657256bab074eb5d3c2c751daa4b6232e",
+      "destination_sha256": "15059badf5a802de3473e6b02622de9657256bab074eb5d3c2c751daa4b6232e"
+    },
+    {
+      "source": "grc/radio_astro_csv_filesink.block.yml",
+      "destination": "grc/radio_astro_csv_filesink.block.yml",
+      "source_sha256": "6d965051f166cca2cb199c984b8a05a252862de8e1e2b717e626675185b3c3e8",
+      "destination_sha256": "06649139626935d1952f9bec92de4a50e40bccd520d7d658a2bdf43a77ca3d6f"
+    },
+    {
+      "source": "python/radio_astro/qa_csv_filesink.py",
+      "destination": "tests/qa_csv_filesink.py",
+      "source_sha256": "87cf9588ca9d804db7e34a4fcdbf15a1f2222aa1cbbac49b71a815d8453e96e7",
+      "destination_sha256": "9f320ef3f295dbc2790a576f9f1c2fe5b6bc490a0426471a4d7337984babf58e"
+    },
+    {
+      "source": "python/radio_astro/hdf5_sink.py",
+      "destination": "python/gnuradio/dspira/hdf5_sink.py",
+      "source_sha256": "776f5dc368ecc9f068fa8db2996a8eba7d7275e604ff660a386831cc8d8fd6c4",
+      "destination_sha256": "776f5dc368ecc9f068fa8db2996a8eba7d7275e604ff660a386831cc8d8fd6c4"
+    },
+    {
+      "source": "grc/radio_astro_hdf5_sink.block.yml",
+      "destination": "grc/radio_astro_hdf5_sink.block.yml",
+      "source_sha256": "87c49d14bb18708f0d56d840c9ff6ad4b9ed25360c22d28e86bba4c418001dde",
+      "destination_sha256": "b292856f5ef23a474b74873ab57a9c231a87c3ebd120ea1a0e4593f3d8dc2d63"
+    },
+    {
+      "source": "python/radio_astro/qa_hdf5_sink.py",
+      "destination": "tests/qa_hdf5_sink.py",
+      "source_sha256": "a967568cd39098dca2564f59e6b4cafead2740a951a3754029926613a01e4fae",
+      "destination_sha256": "d2cca2b18f20223a7cd27472a7450b5306ac38c5f1a87a2f7671ec0c2e528e61"
+    },
+    {
+      "source": "python/radio_astro/integration.py",
+      "destination": "python/gnuradio/dspira/integration.py",
+      "source_sha256": "08a29d783718a5ac6db94b523d9ea863fd7a891ce71a5d58385ffafd151927e7",
+      "destination_sha256": "08a29d783718a5ac6db94b523d9ea863fd7a891ce71a5d58385ffafd151927e7"
+    },
+    {
+      "source": "grc/radio_astro_integration.block.yml",
+      "destination": "grc/radio_astro_integration.block.yml",
+      "source_sha256": "7deaf20b6e3d6096764edc9d1a7d2a299292384a60b26777f09f78a85d11f8d6",
+      "destination_sha256": "4295451c7f4637566799bfe370beb8aece7570aa9c1e517457ee8bc0cd3ed871"
+    },
+    {
+      "source": "python/radio_astro/qa_integration.py",
+      "destination": "tests/qa_integration.py",
+      "source_sha256": "41a27254974f0d3ed25ce8815b887d5ce22777656d4a211110327c2debb6825d",
+      "destination_sha256": "00d3705983b676833393a2db1b3cf057cc89758a2b8e34cbe785c8a56c72be71"
+    },
+    {
+      "source": "python/radio_astro/png_print_spectrum.py",
+      "destination": "python/gnuradio/dspira/png_print_spectrum.py",
+      "source_sha256": "980a5299b5a3c8f95b42113530f486c1191b735c7418bf1b8402b12dfd13445c",
+      "destination_sha256": "980a5299b5a3c8f95b42113530f486c1191b735c7418bf1b8402b12dfd13445c"
+    },
+    {
+      "source": "grc/radio_astro_png_print_spectrum.block.yml",
+      "destination": "grc/radio_astro_png_print_spectrum.block.yml",
+      "source_sha256": "6a2c15683d27d16f853c4d5748c2c13969813ae815811e33c0179c1ce8b35f04",
+      "destination_sha256": "0008322503cbb80b9b0c6fe5751cbde804ca432394ccb31695c313d82afa8656"
+    },
+    {
+      "source": "python/radio_astro/powerSpectrum.py",
+      "destination": "python/gnuradio/dspira/powerSpectrum.py",
+      "source_sha256": "9e2cac03f7595881add1c0ef574a2d73dcde5210e12f4d198eaf394868ead9c3",
+      "destination_sha256": "9e2cac03f7595881add1c0ef574a2d73dcde5210e12f4d198eaf394868ead9c3"
+    },
+    {
+      "source": "grc/radio_astro_powerSpectrum.block.yml",
+      "destination": "grc/radio_astro_powerSpectrum.block.yml",
+      "source_sha256": "4502e80031ef12fe25800a4395872f5061efe5e7bc1f53009eab7ee52b72ea9e",
+      "destination_sha256": "802de3b452de2c41de321e7e613b409164004f7871066eabe53a12a334c5823c"
+    },
+    {
+      "source": "python/radio_astro/qa_powerSpectrum.py",
+      "destination": "tests/qa_powerSpectrum.py",
+      "source_sha256": "5cf6afe66e2faf117298e397db734855a65eadb153d10c725526ff75ed9ccfcf",
+      "destination_sha256": "cccafa199b03db52690ac6cf41b8983f119d2ae4aa118c898c35e2192ef80f6e"
+    },
+    {
+      "source": "python/radio_astro/running_norm_std.py",
+      "destination": "python/gnuradio/dspira/running_norm_std.py",
+      "source_sha256": "6087d24a660baf6b6e365af083ebf20b8ad1ee211700992c8c93062c5b0b96f2",
+      "destination_sha256": "6087d24a660baf6b6e365af083ebf20b8ad1ee211700992c8c93062c5b0b96f2"
+    },
+    {
+      "source": "grc/radio_astro_running_norm_std.block.yml",
+      "destination": "grc/radio_astro_running_norm_std.block.yml",
+      "source_sha256": "299913ac726523c467e3f4f5debd7513cede61025f45493359b5678ea7f50114",
+      "destination_sha256": "f99125c2532a288e69f85d5b135a954f66f3ea345d5821dde3475851a9f4f7cf"
+    },
+    {
+      "source": "python/radio_astro/qa_running_norm_std.py",
+      "destination": "tests/qa_running_norm_std.py",
+      "source_sha256": "f914a11c666838f9012c35c0702373386a62517a6614c723c110a36c9d2c1d70",
+      "destination_sha256": "693a95765a32b0ddeadc75690eb7337523364013c806cb0f217b5ad71e1b19e0"
+    },
+    {
+      "source": "python/radio_astro/systemp_calibration.py",
+      "destination": "python/gnuradio/dspira/systemp_calibration.py",
+      "source_sha256": "46ba38e4074b10960e0b39d6435dcb8b6b3b50fadedc83c46b6cd48f5e7f33d9",
+      "destination_sha256": "46ba38e4074b10960e0b39d6435dcb8b6b3b50fadedc83c46b6cd48f5e7f33d9"
+    },
+    {
+      "source": "grc/radio_astro_systemp_calibration.block.yml",
+      "destination": "grc/radio_astro_systemp_calibration.block.yml",
+      "source_sha256": "585e98da995092572e6415c940aafbc011d5a67aef5327fe6ded06101d240063",
+      "destination_sha256": "a5d6b9c19c15f6ca99ce78728ad06773b57d58caaff009535f7b4feaea278023"
+    },
+    {
+      "source": "python/radio_astro/qa_systemp_calibration.py",
+      "destination": "tests/qa_systemp_calibration.py",
+      "source_sha256": "282df706b7c9b206d6e4edf1993ac533f6d4488c5bf09cd2a3483e95d76434c5",
+      "destination_sha256": "0f072fa839799c715c9d45f831b6fab405bc663dadf518b7a30f1e30011d4407"
+    },
+    {
+      "source": "python/radio_astro/triggered_save_csv.py",
+      "destination": "python/gnuradio/dspira/triggered_save_csv.py",
+      "source_sha256": "8e507c5fd0cb5504b01ef248cb71e130992893d7248716537b3149764226086d",
+      "destination_sha256": "8e507c5fd0cb5504b01ef248cb71e130992893d7248716537b3149764226086d"
+    },
+    {
+      "source": "grc/radio_astro_triggered_save_csv.block.yml",
+      "destination": "grc/radio_astro_triggered_save_csv.block.yml",
+      "source_sha256": "6d378120d15c9b54827f3b574dd1340eba604f7c5000a001ced9de490881683c",
+      "destination_sha256": "c9c78bbc10a52f33df36a9d65a9d3310557cdd094cbbde59adcf48f5691da323"
+    },
+    {
+      "source": "python/radio_astro/vector_moving_average.py",
+      "destination": "python/gnuradio/dspira/vector_moving_average.py",
+      "source_sha256": "38f392e028c1668842a7036fd52c3dc00440f0d8e3b7f0c15c1a8fe939471040",
+      "destination_sha256": "38f392e028c1668842a7036fd52c3dc00440f0d8e3b7f0c15c1a8fe939471040"
+    },
+    {
+      "source": "grc/radio_astro_vector_moving_average.block.yml",
+      "destination": "grc/radio_astro_vector_moving_average.block.yml",
+      "source_sha256": "210030a227aaabb8be3d5f3abe382baca664fe220c3a697d6d30f9efdf8f2eee",
+      "destination_sha256": "a2de2450969fb2c44f40e96e4aef53bdf6399e7041d8ca99d76a2456ec02a4b8"
+    },
+    {
+      "source": "python/radio_astro/qa_vector_moving_average.py",
+      "destination": "tests/qa_vector_moving_average.py",
+      "source_sha256": "e251b4902472c5a9ece1acc5fb802f543ce307b58897a0cae51aac8660030558",
+      "destination_sha256": "bff116ee60a76d48bd793927e9179837f07842973ecd76497894fda4e7ace81c"
+    }
+  ]
+}
