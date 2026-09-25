@@ -103,6 +103,9 @@ See [block ownership and compatibility](docs/BLOCKS.md) for the remaining identi
 
 ## DSP lesson examples
 
+The [Fourier series wave explorer](examples/fourier-wave-explorer/) accompanies the classroom Fourier activity.
+It retains its original GNU Radio 3.7 format and MIT notice.
+
 The [institute exercises](examples/institute/) add 29 flowgraphs for signals, Fourier analysis, filters, and receiver demonstrations.
 The catalog separates successful generation checks from examples requiring compatibility updates.
 These files have one home here and are linked from the DSPIRA lessons website.

@@ -1,0 +1,12 @@
+{
+  "source_repository": "WVURAIL/dspira",
+  "source_revision": "08b58638e1c3b65e5512f0547b32cd48172afde3",
+  "files": [
+    {
+      "source": "images/Fourier_Series_Wave_Explorer.grc",
+      "repository": "dspira-software",
+      "destination": "examples/fourier-wave-explorer/Fourier_Series_Wave_Explorer.grc",
+      "sha256": "b4b67f58fb1aa6abed274128633d68c432673b1507561c11ad3cb8e87f148611"
+    }
+  ]
+}
