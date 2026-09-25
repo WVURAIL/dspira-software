@@ -59,3 +59,9 @@ The seven source files were moved from `gr-radio_astro/examples/DSPIRA/` to
 See [the migration record](docs/migration.json) for original hashes and the
 [link map](https://wvurail.org/dspira/repository-map/) for replacement addresses.
 Old tagged releases and commit links remain available in the original repository.
+
+## DSP lesson examples
+
+The [institute exercises](examples/institute/) add 29 flowgraphs for signals, Fourier analysis, filters, and receiver demonstrations.
+The catalog separates successful generation checks from examples requiring compatibility updates.
+These files have one home here and are linked from the DSPIRA lessons website.
