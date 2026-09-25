@@ -1,8 +1,8 @@
 # gr-dspira
 
 > **Archived on 2026-08-20.** Use
-> [gr-radio_astro](https://github.com/WVURAIL/gr-radio_astro) for maintained
-> DSPIRA software.
+> [dspira-software](https://github.com/WVURAIL/dspira-software) for classroom
+> applications and [gr-radio_astro](https://github.com/WVURAIL/gr-radio_astro) for shared blocks.
 
 This repository preserves GNU Radio 3.7-era DSPIRA prototypes developed in
 June and July 2018.
@@ -39,7 +39,7 @@ to the maintained module.
 
 The tracked Fourier Series Wave Explorer is an exact copy of the flowgraph
 published with the
-[*Making Waves with Fourier*](https://wvurail.org/dspira-lessons/MakingWavesFourier)
+[*Making Waves with Fourier*](https://wvurail.org/dspira/MakingWavesFourier)
 lesson. The 2026 comparison found no remaining implementation that needed to
 be migrated.
 
