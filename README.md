@@ -2,6 +2,7 @@
 
 Classroom telescope applications for DSPIRA. Start with the
 [software guide](https://wvurail.org/dspira/software/) on the lessons website.
+Watch videos on [DSPIRA's YouTube channel](https://www.youtube.com/@dspira).
 
 This repository contains the classroom flowgraphs and all twelve DSPIRA processing blocks.
 Install them together from this checkout. A research software checkout is not required.
@@ -91,6 +92,9 @@ This generates each application separately and checks its Python syntax. It does
 Use the distribution Python environment; incompatible user-installed NumPy versions can prevent GNU Radio from importing.
 
 ## History and old links
+
+This is the original `gr-dspira` repository, renamed `dspira-software` on September 25, 2026.
+The current software and both projects' Git histories are retained here.
 
 The application directory history was extracted with `git subtree split`.
 The seven source files were moved from the former `gr-radio_astro/examples/DSPIRA/` directory to `flowgraphs/`.
