@@ -6,11 +6,11 @@ Generation checks do not operate receiver hardware.
 
 | Flowgraph | Generation check |
 | --- | --- |
-| [Polyphase spectrometer](polyphase-spectrometer.grc) | Needs compatibility updates |
-| [Pluto polyphase spectrometer](polyphase-spectrometer-pluto.grc) | Needs compatibility updates |
-| [RTL-SDR polyphase spectrometer](polyphase-spectrometer-rtl-sdr.grc) | Needs compatibility updates |
-| [LimeSDR spectrometer demonstration](limesdr-spectrometer-demo.grc) | Needs compatibility updates |
-| [LimeSDR polyphase spectrometer](limesdr-polyphase-spectrometer.grc) | Needs compatibility updates |
+| [Polyphase spectrometer](polyphase-spectrometer.grc) | Passed |
+| [Pluto polyphase spectrometer](polyphase-spectrometer-pluto.grc) | Passed |
+| [RTL-SDR polyphase spectrometer](polyphase-spectrometer-rtl-sdr.grc) | Passed |
+| [LimeSDR spectrometer demonstration](limesdr-spectrometer-demo.grc) | Passed |
+| [LimeSDR polyphase spectrometer](limesdr-polyphase-spectrometer.grc) | Passed |
 
 License notices:
 

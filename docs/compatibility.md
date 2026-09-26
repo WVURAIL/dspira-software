@@ -24,12 +24,15 @@ Checked September 25, 2026:
 | GNU Radio | 3.10.9.2 |
 | gr-osmosdr block definitions | Ubuntu package 0.2.5-2.1build3 |
 | gr-limesdr block definitions | Ubuntu package 3.0.1.10.69-3build6 |
-| DSPIRA processing blocks | Included here; extracted unchanged from `cdbda4f577b538c0750b882241f8a36ecc2e88f8` |
+| DSPIRA processing blocks | Included here; calibration and CSV batching corrected during the lesson audit |
 
 The receiver definitions came from Ubuntu packages. Loading those definitions does not test their drivers or hardware.
 CI now repeats generation and syntax checks for all seven applications and reports missing definitions explicitly.
 The DSPIRA package imports and all seven applications generate with the research package absent.
-Block tests cover exports, averaging, reference retention, and single-spectrum capture.
+Block tests cover exports, averaging, reference retention, capture, and distinct spectra delivered in scheduler batches.
+All 29 teaching examples also generate. Eighteen software-only examples passed brief runtime checks with an offscreen Qt display.
+Audio sources, audio sinks, and receivers still need device tests. Generating the moving-average hierarchy does not exercise it alone.
+The example catalog records which checks ran.
 
 ## Still needs hardware testing
 
@@ -44,8 +47,18 @@ Track the remaining work in [issue 1](https://github.com/WVURAIL/dspira-software
 
 ## Multi-vector processing
 
-Synthetic tests exposed two existing batching defects. Calibration repeats the first spectrum across a batch.
-The CSV sink saves only the first spectrum while reporting the whole batch consumed.
-Single-vector checks do not cover this behavior.
-[Issue 2](https://github.com/WVURAIL/dspira-software/issues/2) records reproductions and acceptance checks.
-These defects were preserved during the repository move and still need correction.
+Calibration processes each spectrum in order, preserving separate output rows and the latest hot and cold references.
+The CSV sink processes every row and preserves its integration counter across scheduler calls.
+Manual capture saves the first processed spectrum after a request, once per request.
+CSV timestamps include microseconds; exclusive file creation prevents an earlier capture from being overwritten.
+Repeated timestamps advance by a microsecond until the filename is available.
+Tests compare batched calibration with individual calls and run a finite GNU Radio recording flowgraph.
+See [the regression tests](../tests/blocks/test_spectrum_batches.py) and [issue 2](https://github.com/WVURAIL/dspira-software/issues/2).
+
+## Teaching examples
+
+The XML examples retain their author and license information and import into GNU Radio 3.10.
+The lesson audit corrected window constants, FFT sizes, integer decimation, and HDF5 input types.
+The FM receivers now convert 2.5 MHz to 250 kHz, then 240 kHz, then 48 kHz audio.
+The Pluto example uses GNU Radio's included IIO source at 1421 MHz with a 3.5 MHz sample rate.
+Spectrometer examples use `DSPIRA_OUTPUT_DIR` for output. Their HDF5 pointing field must be filled in before observing.

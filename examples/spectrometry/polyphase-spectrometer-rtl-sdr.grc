@@ -213,7 +213,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>"/home/dspradio/grc_data/"</value>
+      <value>os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "spectrum_")</value>
     </param>
   </block>
   <block>
@@ -653,7 +653,7 @@
     </param>
     <param>
       <key>decim</key>
-      <value>int((integration_time)*samp_rate/vec_length)/int(display_integration*samp_rate/vec_length)</value>
+      <value>max(1, int(round(integration_time / display_integration)))</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -1434,7 +1434,7 @@
     </param>
     <param>
       <key>import</key>
-      <value>from datetime import datetime</value>
+      <value>from datetime import datetime; import os</value>
     </param>
   </block>
   <block>
@@ -3553,17 +3553,29 @@
     </param>
     <param>
       <key>notes</key>
-      <value>amber:39.659,-79.872.  horn3b, lna V3 mod, thin, 5.2/5.2cm probe, RTLSDR</value>
+      <value>Set pointing, site, receiver, and observation notes before recording.</value>
     </param>
     <param>
       <key>pointing</key>
-      <value>A180E55</value>
+      <value>AZ,EL</value>
     </param>
     <param>
       <key>vec_length</key>
       <value>vec_length</value>
     </param>
-  </block>
+    <param>
+    <key>intype</key>
+    <value>float</value>
+  </param>
+  <param>
+    <key>n_inputs</key>
+    <value>1</value>
+  </param>
+  <param>
+    <key>save_toggle</key>
+    <value>True</value>
+  </param>
+</block>
   <connection>
     <source_block_id>blocks_add_xx_0</source_block_id>
     <sink_block_id>fft_vxx_0</sink_block_id>

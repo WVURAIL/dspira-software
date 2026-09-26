@@ -21,8 +21,7 @@
 
 
 import numpy as np
-from datetime import datetime
-import time
+from ._spectrum_file import write_spectrum
 try:
     import h5py
 except:
@@ -128,14 +127,13 @@ class systemp_calibration(gr.sync_block):
         self.gauss_window_spec = self.gauss_window_spec/self.gauss_window_spec.sum()
 
     def work(self, input_items, output_items):
-        in0 = input_items[0]
-        # Copy the input data into a simpler array:
-        self.a[:] = in0[0,:].copy()
-        out0 = output_items[0]
-        out1 = output_items[1]
-        out2 = output_items[2]
+        count = min(len(input_items[0]), *(len(output) for output in output_items))
+        for row in range(count):
+            self.a[:] = input_items[0][row]
+            self._process_spectrum(*(output[row] for output in output_items))
+        return count
 
-
+    def _process_spectrum(self, out0, out1, out2):
         if self.clip_toggle == "True":
             self.spectrum_mask = self.spectrum_mask_clipped
         else:
@@ -226,19 +224,13 @@ class systemp_calibration(gr.sync_block):
         out1[:] = self.gain
         out2[:] = self.tsys
 
-        if self.spectrumcapture_toggle == True:     #If true, capture the spectrum to a .csv text file.
-            current_time = time.time()
-            self.timenow = datetime.now().strftime("%Y-%m-%d_%H.%M.%S.%f")[:-5]
-            #write (freq, output) as a column array to a text file, titled e.g. "2018-07-24_15.15.49_spectrum.txt"
-            # The "prefix", i.e. the file path, is defined in the prefix variable box in the .grc program.
-            self.textfilename = self.prefix + self.timenow + "_" + self.location + "_" + self.az + "_" + self.elev + "_spectrum.csv"
-            self.data_array[:,0] = np.round(self.frequencies/1e6, decimals=4)
-            self.data_array[:,1] = np.round(self.spectrum, decimals=4)
-            np.savetxt(self.textfilename, self.data_array, delimiter=',')
+        if self.spectrumcapture_toggle:
+            self.data_array[:, 0] = np.round(self.frequencies / 1e6, decimals=4)
+            self.data_array[:, 1] = np.round(self.spectrum, decimals=4)
+            self.textfilename = write_spectrum(
+                self.prefix, self.location, self.az, self.elev, self.data_array)
             self.spectrumcapture_toggle = False
-        
-        return len(output_items[0])
-    
+
     #Check if collect Chooser block or spectrumcapture_toggle are changed:
 
     def set_collect(self, collect):

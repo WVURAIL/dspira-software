@@ -1,10 +1,10 @@
 # Teaching examples
 
 29 flowgraphs grouped by DSP topic.
-These retain their original GNU Radio 3.7 XML format, author fields, and license notices.
-GNU Radio Companion can import XML flowgraphs; some need compatibility updates.
+These retain XML format, author fields, and license notices.
+Compatibility fixes allow GNU Radio 3.10 to import and generate the collection.
 
-Recorded generation results: 17 passed, 12 need updates, and 0 have not been checked.
+Recorded generation results: 29 passed, 0 need updates, and 0 have not been checked.
 A generation pass does not verify runtime behavior or receiver hardware.
 
 | Topic | Flowgraphs |

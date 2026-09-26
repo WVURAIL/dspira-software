@@ -6,10 +6,10 @@ Generation checks do not operate receiver hardware.
 
 | Flowgraph | Generation check |
 | --- | --- |
-| [Fundamental frequency with FIR filters](fundamental-frequency-fir.grc) | Needs compatibility updates |
+| [Fundamental frequency with FIR filters](fundamental-frequency-fir.grc) | Passed |
 | [Fundamental frequency with IIR filters](fundamental-frequency-iir.grc) | Passed |
 | [Moving average demonstration](moving-average-block.grc) | Passed |
-| [Moving average comparison](moving-average-comparison.grc) | Needs compatibility updates |
+| [Moving average comparison](moving-average-comparison.grc) | Passed |
 
 License notices:
 

@@ -167,7 +167,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1419e6</value>
+      <value>1421e6</value>
     </param>
   </block>
   <block>
@@ -221,7 +221,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>"/home/odroid/grc_data/"</value>
+      <value>os.path.join(os.path.expanduser(os.environ.get("DSPIRA_OUTPUT_DIR", "~")), "spectrum_")</value>
     </param>
   </block>
   <block>
@@ -275,7 +275,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>10e6</value>
+      <value>3.5e6</value>
     </param>
   </block>
   <block>
@@ -661,7 +661,7 @@
     </param>
     <param>
       <key>decim</key>
-      <value>int((integration_time)*samp_rate/vec_length)/int(display_integration*samp_rate/vec_length)</value>
+      <value>max(1, int(round(integration_time / display_integration)))</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -1473,7 +1473,7 @@
     </param>
     <param>
       <key>import</key>
-      <value>from datetime import datetime</value>
+      <value>from datetime import datetime; import os</value>
     </param>
   </block>
   <block>
@@ -1508,7 +1508,7 @@
     </param>
   </block>
   <block>
-    <key>pluto_source</key>
+    <key>iio_pluto_source</key>
     <param>
       <key>bbdc</key>
       <value>True</value>
@@ -1593,7 +1593,23 @@
       <key>samplerate</key>
       <value>int(samp_rate)</value>
     </param>
-  </block>
+    <param>
+    <key>type</key>
+    <value>fc32</value>
+  </param>
+  <param>
+    <key>gain1</key>
+    <value>'manual'</value>
+  </param>
+  <param>
+    <key>manual_gain1</key>
+    <value>64.0</value>
+  </param>
+  <param>
+    <key>filter_source</key>
+    <value>'Auto'</value>
+  </param>
+</block>
   <block>
     <key>qtgui_time_sink_x</key>
     <param>
@@ -2276,17 +2292,29 @@
     </param>
     <param>
       <key>notes</key>
-      <value>amber:39.659,-79.872.  horn3b, lna V3 mod, thin, 5.2/5.2cm probe, 20,12,10</value>
+      <value>Set pointing, site, receiver, and observation notes before recording.</value>
     </param>
     <param>
       <key>pointing</key>
-      <value>A180E55</value>
+      <value>AZ,EL</value>
     </param>
     <param>
       <key>vec_length</key>
       <value>vec_length</value>
     </param>
-  </block>
+    <param>
+    <key>intype</key>
+    <value>float</value>
+  </param>
+  <param>
+    <key>n_inputs</key>
+    <value>1</value>
+  </param>
+  <param>
+    <key>save_toggle</key>
+    <value>True</value>
+  </param>
+</block>
   <connection>
     <source_block_id>blocks_add_xx_0</source_block_id>
     <sink_block_id>fft_vxx_0</sink_block_id>

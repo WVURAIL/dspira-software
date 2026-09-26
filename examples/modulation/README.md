@@ -6,8 +6,8 @@ Generation checks do not operate receiver hardware.
 
 | Flowgraph | Generation check |
 | --- | --- |
-| [Mixing sine waves](sine-mixing.grc) | Needs compatibility updates |
-| [Frequency and amplitude modulation](frequency-amplitude-modulation.grc) | Needs compatibility updates |
+| [Mixing sine waves](sine-mixing.grc) | Passed |
+| [Frequency and amplitude modulation](frequency-amplitude-modulation.grc) | Passed |
 
 License notices:
 
