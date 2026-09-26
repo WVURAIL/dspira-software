@@ -1,0 +1,15 @@
+{
+  "source_repository": "WVURAIL/gr-radio_astro",
+  "source_commit": "9de98c9c8a281293792ae4dfc3910b6dc6c15c81",
+  "source_directory": "examples/DSPIRA",
+  "sha256": {
+    "interferometer_simpleSpectrometer_Lime_adding.grc": "ba8b5026247c43bdaee1cb7302c3aaf618f7d2216e420a68dbe76362a90e6fa0",
+    "interferometer_simpleSpectrometer_Lime_multiplying.grc": "c7cc31991cb0a5383bd903083ba37f40ff165a980ce2b97aab91e21258000469",
+    "lightning_detector_amplitude.grc": "9b54af5b14ed24ae8651702d420b24e5a75055be858d48b38e0e055046402850",
+    "lightning_detector_coincident_deriv.grc": "025f218be3480584da717f2c8cad9ee26c4a46d1a09512c101d334cd2147e659",
+    "lightning_detector_cross_corr_deriv.grc": "87a4b3725be2f9a23002bc578d2fecaa077ce1f23a4a90565decf20a6b9c5948",
+    "lightning_detector_std.grc": "93691be54f1520ba673d0bfb557cab2cace68f574fe33ee3607062e5656c934f",
+    "spectrometer_w_cal.grc": "4d02f8185c1b8ae168023c31bca1f89443672132f2a27baeff640636985d167c"
+  },
+  "hash_basis": "Original Git blobs, without checkout line-ending conversion."
+}
