@@ -1,0 +1,292 @@
+[
+  {
+    "title": "Signal controls",
+    "path": "examples/signal-basics/signal-controls.grc",
+    "source_path": "grc-flowgraphs/a1.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Convolution",
+    "path": "examples/fourier-analysis/convolution.grc",
+    "source_path": "grc-flowgraphs/convolution.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Custom noise generator",
+    "path": "examples/signal-basics/noise-generator.grc",
+    "source_path": "grc-flowgraphs/custom_noisegen.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Signal source exercise",
+    "path": "examples/signal-basics/signal-source.grc",
+    "source_path": "grc-flowgraphs/ex01_1.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Time display exercise",
+    "path": "examples/signal-basics/time-display.grc",
+    "source_path": "grc-flowgraphs/ex01_2.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Signal combination exercise",
+    "path": "examples/signal-basics/signal-combination.grc",
+    "source_path": "grc-flowgraphs/ex01_3.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Frequency display exercise",
+    "path": "examples/signal-basics/frequency-display.grc",
+    "source_path": "grc-flowgraphs/ex01_4.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "signal-basics",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "FM receiver",
+    "path": "examples/receivers/fm-receiver.grc",
+    "source_path": "grc-flowgraphs/fmradio.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "receivers",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "FM receiver with equalizer",
+    "path": "examples/receivers/fm-receiver-equalizer.grc",
+    "source_path": "grc-flowgraphs/fmradioeq.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "receivers",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Fourier series",
+    "path": "examples/fourier-analysis/fourier-series.grc",
+    "source_path": "grc-flowgraphs/fourier series.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Square-wave Fourier series",
+    "path": "examples/fourier-analysis/square-wave-series.grc",
+    "source_path": "grc-flowgraphs/fourierseries_square.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Triangle-wave Fourier series",
+    "path": "examples/fourier-analysis/triangle-wave-series.grc",
+    "source_path": "grc-flowgraphs/fourierseries_triangle.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Sine and cosine transforms",
+    "path": "examples/fourier-analysis/sine-cosine-transforms.grc",
+    "source_path": "grc-flowgraphs/ft_sine_cos.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Fourier transform pairs",
+    "path": "examples/fourier-analysis/transform-pairs.grc",
+    "source_path": "grc-flowgraphs/ftpairs.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Fundamental frequency with FIR filters",
+    "path": "examples/filters/fundamental-frequency-fir.grc",
+    "source_path": "grc-flowgraphs/fundamentalfreq.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "filters",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Fundamental frequency with IIR filters",
+    "path": "examples/filters/fundamental-frequency-iir.grc",
+    "source_path": "grc-flowgraphs/fundamentalfreq_IIR.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "filters",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Mixing sine waves",
+    "path": "examples/modulation/sine-mixing.grc",
+    "source_path": "grc-flowgraphs/mixing_demo_sines.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "modulation",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Frequency and amplitude modulation",
+    "path": "examples/modulation/frequency-amplitude-modulation.grc",
+    "source_path": "grc-flowgraphs/mixing_demo_sines_freq_amplitude_modulation.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "modulation",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Moving average demonstration",
+    "path": "examples/filters/moving-average-block.grc",
+    "source_path": "grc-flowgraphs/movavggeir.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "filters",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Moving average comparison",
+    "path": "examples/filters/moving-average-comparison.grc",
+    "source_path": "grc-flowgraphs/movingaverage.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "filters",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Polyphase spectrometer",
+    "path": "examples/spectrometry/polyphase-spectrometer.grc",
+    "source_path": "grc-flowgraphs/pfb_spectrometer.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "spectrometry",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Pluto polyphase spectrometer",
+    "path": "examples/spectrometry/polyphase-spectrometer-pluto.grc",
+    "source_path": "grc-flowgraphs/pfb_spectrometer_pluto.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "spectrometry",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "RTL-SDR polyphase spectrometer",
+    "path": "examples/spectrometry/polyphase-spectrometer-rtl-sdr.grc",
+    "source_path": "grc-flowgraphs/pfb_spectrometer_rtlsdr.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "spectrometry",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Sampling",
+    "path": "examples/sampling/sampling.grc",
+    "source_path": "grc-flowgraphs/sampling.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "sampling",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Sampling demonstration",
+    "path": "examples/sampling/sampling-demo.grc",
+    "source_path": "grc-flowgraphs/sampling_demo.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "sampling",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Sawtooth Fourier transform",
+    "path": "examples/fourier-analysis/sawtooth-transform.grc",
+    "source_path": "grc-flowgraphs/sawfft.grc",
+    "generation": "passed",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "LimeSDR spectrometer demonstration",
+    "path": "examples/spectrometry/limesdr-spectrometer-demo.grc",
+    "source_path": "grc-flowgraphs/spectrometer_demo_lime.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "spectrometry",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "LimeSDR polyphase spectrometer",
+    "path": "examples/spectrometry/limesdr-polyphase-spectrometer.grc",
+    "source_path": "grc-flowgraphs/spectrometer_pfb_lime.grc",
+    "generation": "needs-update",
+    "tested_with": "GNU Radio 3.10.9.2",
+    "runtime_tested": false,
+    "topic": "spectrometry",
+    "license": "licenses/institute-examples.txt"
+  },
+  {
+    "title": "Fourier series wave explorer",
+    "path": "examples/fourier-analysis/wave-explorer.grc",
+    "source_path": "images/Fourier_Series_Wave_Explorer.grc",
+    "generation": "passed",
+    "runtime_tested": false,
+    "topic": "fourier-analysis",
+    "license": "licenses/fourier-wave-explorer.txt",
+    "tested_with": "GNU Radio 3.10.9.2"
+  }
+]
