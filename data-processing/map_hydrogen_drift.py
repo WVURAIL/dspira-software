@@ -35,8 +35,8 @@ SDR = "airspy"      # run with --help to see the full list
 # Each entry matches the setup the lessons tell you to build, on
 #   wvurail.org/dspira/Spectrometer_sourceblock_settings
 # and NOT the old per-radio flowgraphs in the archived dspira repository.
-# Those are GNU Radio 3.7 files that 3.8 and later cannot open, and they used
-# different tunings from the documented procedure. If you have changed freq or
+# Those older files used different tunings from the documented procedure.
+# The teaching examples now include GNU Radio 3.10 compatibility fixes. If you have changed freq or
 # samp_rate yourself, the check further down tells you the windows do not fit
 # your file rather than quietly mapping the wrong part of the band.
 #
@@ -66,7 +66,7 @@ SDR_WINDOWS = {
     },
     # PlutoSDR: samp_rate 3.5e6 AND freq 1421e6 -> 1419.25-1422.75 MHz.
     # Both changes are in the lesson and both matter - at the default
-    # 1419 MHz a 3.5 MHz band stops at 1420.75 MHz and clips the red wing.
+    # 1419 MHz a 3.5 MHz band stops at 1420.75 MHz, leaving little blue-side room.
     # There is no room for a red-side baseline (1419.25-1419.5 is band edge),
     # so the continuum is fitted on the blue side only and extrapolated
     # across the line.
@@ -418,7 +418,7 @@ if __name__ == '__main__':
             intH1 = s[galmask].sum() * dv_kms
             print("integrated power",intH1)
             l,b = azEl2Gal(Az, El, t, tel )
-            print("galactic locatoin",l,b)
+            print("galactic location",l,b)
 
             #### Find anything within 15 degrees ####
             #### Add to map all within 15 degrees ####

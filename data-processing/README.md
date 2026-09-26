@@ -15,12 +15,13 @@ that case.
 Install the Python dependencies, then enter this folder from the repository root:
 
 ```bash
-python3 -m pip install numpy h5py matplotlib ephem
+sudo apt install python3-numpy python3-h5py python3-matplotlib python3-ephem
 cd data-processing
 ```
 
 Run the commands below from `data-processing/`.
 GNU Radio is needed to collect observations, but these scripts can process saved files without it.
+On other systems, install these dependencies with pip inside a Python virtual environment.
 
 (An earlier version of this page also listed `astropy` and `numba`. Neither is used; both were imported for commented-out code. Importing `numba` failed on machines without a compatible build. The imports are gone.)
 
@@ -129,7 +130,7 @@ Opens the map in galactic coordinates and saves `gal_map.pdf`. Put several
 observations' csv files in the same directory — with distinct names — and they
 are combined into one map.
 
-You will see `RuntimeWarning: invalid value encountered in divide`. This is expected. Unobserved pixels have zero hits, making `h1map/hitmap` undefined. They appear blank. A partial map is meant to have holes.
+Unobserved pixels have zero hits, making `h1map/hitmap` undefined. They are masked and appear blank. A partial map is meant to have holes.
 
 ### The other three
 
@@ -176,6 +177,7 @@ Run the existing pointing parser checks from the repository root:
 
 ```bash
 python3 tests/data-processing/test_parse_pointing.py
+MPLBACKEND=Agg python3 tests/data-processing/test_pipeline.py
 ```
 
 The scripts moved from `dspira/code/observations` without implementation changes.

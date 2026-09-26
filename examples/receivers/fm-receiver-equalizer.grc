@@ -580,7 +580,7 @@
     <key>analog_wfm_rcv</key>
     <param>
       <key>audio_decimation</key>
-      <value>10</value>
+      <value>5</value>
     </param>
     <param>
       <key>alias</key>
@@ -620,7 +620,7 @@
     </param>
     <param>
       <key>quad_rate</key>
-      <value>480</value>
+      <value>240e3</value>
     </param>
   </block>
   <block>
@@ -1161,11 +1161,11 @@
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>75e3</value>
+      <value>100e3</value>
     </param>
     <param>
       <key>decim</key>
-      <value>12</value>
+      <value>10</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -1209,11 +1209,11 @@
     </param>
     <param>
       <key>width</key>
-      <value>25e3</value>
+      <value>20e3</value>
     </param>
     <param>
       <key>win</key>
-      <value>firdes.WIN_HAMMING</value>
+      <value>window.WIN_HAMMING</value>
     </param>
   </block>
   <block>
@@ -2667,7 +2667,7 @@
     </param>
     <param>
       <key>fftsize</key>
-      <value>1024*3</value>
+      <value>4096</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -2903,7 +2903,7 @@
     </param>
     <param>
       <key>wintype</key>
-      <value>firdes.WIN_BLACKMAN_hARRIS</value>
+      <value>window.WIN_BLACKMAN_hARRIS</value>
     </param>
     <param>
       <key>label</key>
@@ -3018,7 +3018,7 @@
     </param>
     <param>
       <key>wintype</key>
-      <value>firdes.WIN_BLACKMAN_hARRIS</value>
+      <value>window.WIN_BLACKMAN_hARRIS</value>
     </param>
   </block>
   <block>
@@ -3037,7 +3037,7 @@
     </param>
     <param>
       <key>decim</key>
-      <value>5</value>
+      <value>25</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -3061,7 +3061,7 @@
     </param>
     <param>
       <key>interp</key>
-      <value>12</value>
+      <value>24</value>
     </param>
     <param>
       <key>maxoutbuf</key>

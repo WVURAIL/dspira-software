@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 import tempfile
+import yaml
 
 
 def check_graph(platform, path, output):
@@ -20,6 +21,9 @@ def check_graph(platform, path, output):
         raise ValueError("GNU Radio generation failed")
     generated = Path(generated)
     compile(generated.read_text(), str(generated), "exec")
+    if graph.get_option("generate_options").startswith("hb"):
+        definition = generated.with_suffix(".block.yml")
+        platform.load_block_description(yaml.safe_load(definition.read_text()), str(definition))
     return graph
 
 
@@ -39,6 +43,8 @@ def main():
     if args.examples:
         catalog = json.loads((root / "examples/catalog.json").read_text())
         paths += [root / entry["path"] for entry in catalog if entry["generation"] == "passed"]
+    paths = sorted(dict.fromkeys(paths), key=lambda path: not platform.parse_flow_graph(str(path))[
+        "options"]["parameters"].get("generate_options", "").startswith("hb"))
     print("GNU Radio", gr.version())
     failed = []
     with tempfile.TemporaryDirectory() as temporary:

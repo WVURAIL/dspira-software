@@ -8,7 +8,8 @@ set(DSPIRA_BLOCKS
     chart_recorder comparator correlate csv_filesink hdf5_sink integration
     png_print_spectrum power_spectrum running_norm_std systemp_calibration
     triggered_save_csv vector_moving_average)
-set(DSPIRA_PYTHON python/gnuradio/dspira/__init__.py)
+set(DSPIRA_PYTHON python/gnuradio/dspira/__init__.py
+                  python/gnuradio/dspira/_spectrum_file.py)
 foreach(block IN LISTS DSPIRA_BLOCKS)
     list(APPEND DSPIRA_PYTHON python/gnuradio/dspira/${block}.py)
     set(installed_block ${block})

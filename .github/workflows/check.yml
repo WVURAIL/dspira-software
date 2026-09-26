@@ -21,6 +21,7 @@ jobs:
         run: |
           /usr/bin/python3 -m compileall -q data-processing
           /usr/bin/python3 tests/data-processing/test_parse_pointing.py
+          /usr/bin/python3 tests/data-processing/test_pipeline.py
           for script in az_el_to_galactic convert_to_temperature hdf5_to_csv map_from_csv map_hydrogen_drift plot_total_power; do
             /usr/bin/python3 "data-processing/$script.py" --help > /dev/null
           done

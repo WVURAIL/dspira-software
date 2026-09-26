@@ -44,8 +44,8 @@ def documents():
         if is_example:
             counts = Counter(entry["generation"] for entry in entries)
             intro = (f"# Teaching examples\n\n{len(entries)} flowgraphs grouped by DSP topic.\n"
-                     "These retain their original GNU Radio 3.7 XML format, author fields, and license notices.\n"
-                     "GNU Radio Companion can import XML flowgraphs; some need compatibility updates.\n\n"
+                     "These retain XML format, author fields, and license notices.\n"
+                     "Compatibility fixes allow GNU Radio 3.10 to import and generate the collection.\n\n"
                      f"Recorded generation results: {counts['passed']} passed, {counts['needs-update']} need updates, "
                      f"and {counts['not-checked']} have not been checked.\n"
                      "A generation pass does not verify runtime behavior or receiver hardware.\n")

@@ -16,7 +16,7 @@ parameters:
 - id: intype
   label: IO Type
   dtype: enum
-  default: 'Complex'
+  default: 'complex'
   options: ['complex', 'float', 'int']
   option_labels: ['Complex', 'Float', 'Int']
   option_attributes:
