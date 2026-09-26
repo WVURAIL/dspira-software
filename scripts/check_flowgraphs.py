@@ -6,10 +6,8 @@ import xml.etree.ElementTree as ET
 import yaml
 
 root = Path(__file__).resolve().parents[1]
-manifest = json.loads((root / "docs/history/application-migration.json").read_text())
 applications = json.loads((root / "applications/catalog.json").read_text())
 examples = json.loads((root / "examples/catalog.json").read_text())
-assert set(manifest["sha256"]) == {entry["original_filename"] for entry in applications}, "Migrated application missing"
 for directory, catalog in [("applications", applications), ("examples", examples)]:
     paths = [entry["path"] for entry in catalog]
     assert paths and len(paths) == len(set(paths)), (directory, "empty or repeated catalog entry")

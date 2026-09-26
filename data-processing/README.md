@@ -180,4 +180,3 @@ python3 tests/data-processing/test_parse_pointing.py
 
 The scripts moved from `dspira/code/observations` without implementation changes.
 Their original MIT notice is retained in [LICENSE](LICENSE).
-The [migration record](../docs/history/data-processing-migration.json) identifies their source revision and checksums.

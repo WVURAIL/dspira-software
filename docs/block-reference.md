@@ -10,7 +10,6 @@ DSPIRA software owns its applications and these twelve Python blocks:
 Nine are used by the current applications. The chart recorder, correlator, and
 power-spectrum helper are retained classroom components. Their processing code
 was moved unchanged, with its original copyright and license notices.
-[The migration manifest](history/block-migration.json) records source and destination hashes.
 
 ## Existing flowgraphs
 

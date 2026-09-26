@@ -1,6 +1,6 @@
 {
   "previous_revision": "f89a2f3fecc8d5f75ed318d124515f559b9fab34",
-  "description": "Paths before and after the repository organization. Historical migration manifests keep their original paths and checksums.",
+  "description": "Earlier paths and their current replacements. Retired import records remain in Git history.",
   "files": {
     "flowgraphs/spectrometer_w_cal.grc": "applications/spectrometry/calibrated-spectrometer.grc",
     "flowgraphs/interferometer_simpleSpectrometer_Lime_adding.grc": "applications/interferometry/limesdr-adding.grc",
@@ -17,11 +17,6 @@
     "grc/radio_astro_powerSpectrum.block.yml": "grc/radio_astro_power_spectrum.block.yml",
     "docs/BLOCKS.md": "docs/block-reference.md",
     "docs/KNOWN_ISSUES.md": "docs/compatibility.md",
-    "docs/migration.json": "docs/history/application-migration.json",
-    "docs/block-migration.json": "docs/history/block-migration.json",
-    "docs/data-processing-migration.json": "docs/history/data-processing-migration.json",
-    "examples/institute/source-manifest.json": "docs/history/institute-examples.json",
-    "examples/fourier-wave-explorer/source-manifest.json": "docs/history/fourier-wave-explorer.json",
     "examples/institute/LICENSE.txt": "licenses/institute-examples.txt",
     "examples/fourier-wave-explorer/LICENSE.txt": "licenses/fourier-wave-explorer.txt",
     "examples/fourier-wave-explorer/Fourier_Series_Wave_Explorer.grc": "examples/fourier-analysis/wave-explorer.grc",
