@@ -15,3 +15,7 @@ The twelve DSPIRA Python blocks and their GRC definitions were moved from
 gr-radio_astro commit cdbda4f577b538c0750b882241f8a36ecc2e88f8.
 Their implementation bytes and original notices are retained.
 See docs/block-migration.json for source paths and checksums.
+
+The observation scripts under data-processing/ came from WVURAIL/dspira.
+Their MIT license and original copyright notice are retained in data-processing/LICENSE.txt.
+See docs/data-processing-migration.json for source paths and checksums.

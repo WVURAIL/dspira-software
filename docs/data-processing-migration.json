@@ -1,0 +1,55 @@
+{
+  "source_repository": "WVURAIL/dspira",
+  "source_revision": "1ed12e3a2994336fd8364ca59982c943f8a1a72e",
+  "description": "Observation-processing scripts moved unchanged. The README now describes their new home.",
+  "files": [
+    {
+      "source_path": "code/observations/README.md",
+      "destination": "data-processing/README.md",
+      "source_sha256": "c447d5698a1779e63f4f81a835037062abd83e4515a4b9dbd43e483c135fa018",
+      "destination_sha256": "66f281de091a28e60398f47ffca49530ff8095209b2b4407ea3cb67d024fb52c"
+    },
+    {
+      "source_path": "code/observations/az_el2gal.py",
+      "destination": "data-processing/az_el2gal.py",
+      "source_sha256": "22d1ef093f8cf1d77d38eee6a131a096dc16045d503493554d547751e4952563",
+      "destination_sha256": "22d1ef093f8cf1d77d38eee6a131a096dc16045d503493554d547751e4952563"
+    },
+    {
+      "source_path": "code/observations/convert_to_temperature.py",
+      "destination": "data-processing/convert_to_temperature.py",
+      "source_sha256": "1fe54e6ef39248e8c4a6bd6ac1a91265d7534a69a1ef8e0f6a378f986c288fef",
+      "destination_sha256": "1fe54e6ef39248e8c4a6bd6ac1a91265d7534a69a1ef8e0f6a378f986c288fef"
+    },
+    {
+      "source_path": "code/observations/hdf5_to_csv.py",
+      "destination": "data-processing/hdf5_to_csv.py",
+      "source_sha256": "d44123554a5a5d2f70ba0cd42e2fd24fe7ed2e38c4ca3f4c25f9dea951a166f3",
+      "destination_sha256": "d44123554a5a5d2f70ba0cd42e2fd24fe7ed2e38c4ca3f4c25f9dea951a166f3"
+    },
+    {
+      "source_path": "code/observations/map_from_csv.py",
+      "destination": "data-processing/map_from_csv.py",
+      "source_sha256": "05bf668374e892c111aeca582eb3f6c24b5e8ecb1e2879562c2e8a4cb71719e1",
+      "destination_sha256": "05bf668374e892c111aeca582eb3f6c24b5e8ecb1e2879562c2e8a4cb71719e1"
+    },
+    {
+      "source_path": "code/observations/map_h1_hdf5_drift.py",
+      "destination": "data-processing/map_h1_hdf5_drift.py",
+      "source_sha256": "43db3227dc9b22ba6e94433ff22a84ebe99fe11a7791caae809c3000fd9d0704",
+      "destination_sha256": "43db3227dc9b22ba6e94433ff22a84ebe99fe11a7791caae809c3000fd9d0704"
+    },
+    {
+      "source_path": "code/observations/plot_total_power.py",
+      "destination": "data-processing/plot_total_power.py",
+      "source_sha256": "e871838368914e0baa3a95c7a85af3d051f4fd8db21bad22f4ee44997f6094d6",
+      "destination_sha256": "e871838368914e0baa3a95c7a85af3d051f4fd8db21bad22f4ee44997f6094d6"
+    },
+    {
+      "source_path": "code/observations/test_parse_pointing.py",
+      "destination": "data-processing/test_parse_pointing.py",
+      "source_sha256": "fe51abd21e23912c51ddf439ebdd5e6279f370aaf421f9b8475db7bdf2d74eba",
+      "destination_sha256": "fe51abd21e23912c51ddf439ebdd5e6279f370aaf421f9b8475db7bdf2d74eba"
+    }
+  ]
+}

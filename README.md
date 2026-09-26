@@ -66,11 +66,18 @@ Experimental lightning detectors save triggered files in their working directory
 Before updating, preserve local receiver settings and edited flowgraphs.
 Run `git pull --ff-only`, then repeat the build, test, and install commands above.
 
+## Process recorded observations
+
+The [data-processing guide](data-processing/) covers calibration, sky maps, CSV export, and power plots.
+These scripts work with saved HDF5 spectra. They do not require GNU Radio to process existing files.
+Follow the [Observations lesson](https://wvurail.org/dspira/Observations/) for the analysis workflow.
+Lesson notebooks and sample datasets remain in [DSPIRA lesson examples](https://github.com/WVURAIL/dspira/tree/main/lesson-examples).
+
 ## Contribute
 
 Open a pull request here for classroom application changes. Include the GNU Radio
-version, receiver model, and a description of the test you performed. Use
-this repository for DSPIRA block changes and `dspira-hardware` for board designs.
+version, receiver model, and a description of the test you performed. Send
+DSPIRA block and observation-processing changes here. Send board designs to `dspira-hardware`.
 Lesson and worksheet contributions belong in [dspira](https://github.com/WVURAIL/dspira).
 
 Run `python3 scripts/check_flowgraphs.py` to check the application catalog.

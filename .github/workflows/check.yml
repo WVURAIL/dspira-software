@@ -15,7 +15,17 @@ jobs:
       - name: Install GNU Radio and receiver block definitions
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends gnuradio-dev gr-osmosdr gr-limesdr cmake g++ python3-yaml python3-h5py python3-matplotlib
+          sudo apt-get install -y --no-install-recommends gnuradio-dev gr-osmosdr gr-limesdr cmake g++ python3-yaml python3-h5py python3-matplotlib python3-ephem
+      - name: Check observation-processing scripts
+        run: |
+          /usr/bin/python3 -m compileall -q data-processing
+          /usr/bin/python3 data-processing/test_parse_pointing.py
+          for script in az_el2gal convert_to_temperature hdf5_to_csv map_from_csv map_h1_hdf5_drift plot_total_power; do
+            /usr/bin/python3 "data-processing/$script.py" --help > /dev/null
+          done
+        env:
+          PYTHONNOUSERSITE: "1"
+          MPLBACKEND: Agg
       - name: Build, test, and install DSPIRA blocks
         run: |
           cmake -S . -B build -DPYTHON_EXECUTABLE=/usr/bin/python3
