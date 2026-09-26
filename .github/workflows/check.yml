@@ -12,6 +12,7 @@ jobs:
           python-version: "3.12"
       - run: python -m pip install PyYAML==6.0.2
       - run: python scripts/check_flowgraphs.py
+      - run: python scripts/render_catalogs.py --check
       - name: Install GNU Radio and receiver block definitions
         run: |
           sudo apt-get update
@@ -19,8 +20,8 @@ jobs:
       - name: Check observation-processing scripts
         run: |
           /usr/bin/python3 -m compileall -q data-processing
-          /usr/bin/python3 data-processing/test_parse_pointing.py
-          for script in az_el2gal convert_to_temperature hdf5_to_csv map_from_csv map_h1_hdf5_drift plot_total_power; do
+          /usr/bin/python3 tests/data-processing/test_parse_pointing.py
+          for script in az_el_to_galactic convert_to_temperature hdf5_to_csv map_from_csv map_hydrogen_drift plot_total_power; do
             /usr/bin/python3 "data-processing/$script.py" --help > /dev/null
           done
         env:
@@ -36,8 +37,8 @@ jobs:
         env:
           PYTHONNOUSERSITE: "1"
           MPLBACKEND: Agg
-      - name: Generate and syntax-check all classroom applications
-        run: /usr/bin/python3 scripts/check_generation.py
+      - name: Generate applications and compatible teaching examples
+        run: /usr/bin/python3 scripts/check_generation.py --examples
         env:
           PYTHONNOUSERSITE: "1"
           GRC_BLOCKS_PATH: ${{ github.workspace }}/grc

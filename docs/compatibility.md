@@ -41,7 +41,7 @@ Block tests cover exports, averaging, reference retention, and single-spectrum c
 The two interferometers and four lightning detectors remain experimental pending equipment tests.
 A successful generation check is not a classroom-ready certification.
 Track the remaining work in [issue 1](https://github.com/WVURAIL/dspira-software/issues/1).
-The original migration hashes remain in `migration.json` for provenance.
+The original migration hashes remain in [the application migration record](history/application-migration.json) for provenance.
 
 ## Multi-vector processing
 

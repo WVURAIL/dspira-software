@@ -10,7 +10,7 @@ DSPIRA software owns its applications and these twelve Python blocks:
 Nine are used by the current applications. The chart recorder, correlator, and
 power-spectrum helper are retained classroom components. Their processing code
 was moved unchanged, with its original copyright and license notices.
-[The migration manifest](block-migration.json) records source and destination hashes.
+[The migration manifest](history/block-migration.json) records source and destination hashes.
 
 ## Existing flowgraphs
 
@@ -35,3 +35,12 @@ contains the separate NSF Integrate/Detect applications, research blocks, and
 transient experiments. It is not part of the DSPIRA installation.
 Some historical research bench examples use the HDF5 recorder now owned here.
 Those examples can use this installed block without duplicating its implementation.
+
+## File names and compatibility
+
+Python files use lowercase names with underscores, including `power_spectrum.py`.
+Both `dspira.power_spectrum` and the existing `dspira.powerSpectrum` entry point work.
+The old `gnuradio.dspira.powerSpectrum` module import remains available.
+
+Saved GRC block identifiers remain unchanged, including `radio_astro_powerSpectrum`.
+CMake installs that definition under its original filename to replace older installations without duplicate blocks.

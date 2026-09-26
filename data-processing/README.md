@@ -33,9 +33,9 @@ GNU Radio is needed to collect observations, but these scripts can process saved
         │                │                     │
    (calibrate)      (make a map)         (look at one thing)
         │                │                     │
-convert_to_temperature   map_h1_hdf5_drift   plot_total_power
+convert_to_temperature   map_hydrogen_drift   plot_total_power
         │                │                   hdf5_to_csv
-   gain + Tsys csv ──────┤                   az_el2gal
+   gain + Tsys csv ──────┤                   az_el_to_galactic
                          │
                   h1map + hitmap csv
                          │
@@ -66,10 +66,10 @@ taken at the same tuning. The csv files carry no frequency axis, so applying a
 gain solution from a different tuning goes undetected. Calibrate at the tuning
 you observe with.
 
-### 2. Make a sky map — `map_h1_hdf5_drift.py`
+### 2. Make a sky map — `map_hydrogen_drift.py`
 
 ```bash
-python3 map_h1_hdf5_drift.py -d ~/my_observation/ -n -79.872 -l 39.659 \
+python3 map_hydrogen_drift.py -d ~/my_observation/ -n -79.872 -l 39.659 \
         -g tsys_gain.csv -t tsys_Tsys.csv
 ```
 
@@ -81,11 +81,11 @@ Writes `h1map_drift.csv` and `hitmap_drift.csv` into the current directory. Use 
 > **Tell it which radio you used.** This setting determines the script's frequency windows.
 > At 10 MHz, an Airspy covers about ±700 km/s around the line.
 > At 2.4 MHz, an RTL-SDR covers barely ±230 km/s.
-> Edit `SDR = "airspy"` near the top of `map_h1_hdf5_drift.py`.
+> Edit `SDR = "airspy"` near the top of `map_hydrogen_drift.py`.
 > Alternatively, pass `--sdr airspy` on the command line.
 > Other supported values are `airspy-mini`, `lime`, `pluto`, and `rtlsdr`. Each preset matches the [source block settings page](https://wvurail.org/dspira/Spectrometer_sourceblock_settings).
 > Historical per-radio flowgraphs use GNU Radio 3.7.
-> Versions 3.8 and later cannot open them.
+> GNU Radio Companion can import their XML format, but some blocks need compatibility updates.
 > Three archived flowgraphs also used different tunings. If the windows don't match the file, the script says
 > so rather than producing an empty map.
 >
@@ -137,16 +137,16 @@ You will see `RuntimeWarning: invalid value encountered in divide`. This is expe
 |---|---|
 | `hdf5_to_csv.py` | One HDF5 file to one csv, frequency in the first column. For opening a spectrum in a spreadsheet. |
 | `plot_total_power.py` | **Band-average power** against time across a directory of files — the average over the whole band, not the hydrogen line. Writes `total_power.csv` and `times.csv` and opens a plot, in time order. Useful for watching the system behave during a drift scan. |
-| `az_el2gal.py` | Converts one azimuth/elevation and a time into galactic longitude and latitude. `--help` explains the arguments. Handy for planning. |
+| `az_el_to_galactic.py` | Converts one azimuth/elevation and a time into galactic longitude and latitude. `--help` explains the arguments. Handy for planning. |
 
 ## Earlier processing fixes
 
 All found by running the scripts against synthetic HDF5 files built to match
-what `hdf5_sink` writes, not by reading them. In `map_h1_hdf5_drift.py`:
+what `hdf5_sink` writes, not by reading them. In `map_hydrogen_drift.py`:
 
 - **The elevation was read wrong.** The original parser dropped the last
   character, so `A180E40` was elevation 4, silently. Its first replacement
-  mis-read labelled strings (`Data 5 A180E40` came out azimuth 5). The parser accepts only unambiguous strings and checks their ranges. It **reports and skips invalid values instead of guessing**. `test_parse_pointing.py` covers 30 cases, including failures from both earlier versions.
+  mis-read labelled strings (`Data 5 A180E40` came out azimuth 5). The parser accepts only unambiguous strings and checks their ranges. It **reports and skips invalid values instead of guessing**. `tests/data-processing/test_parse_pointing.py` covers 30 cases, including failures from both earlier versions.
 - **Repeated timestamps produced a silent blank map.** The sink repeats one timestamp for every vector in a work() call. The first two timestamps are therefore often equal. Cadence now uses the observation's full span. If nothing can be mapped, the script exits with an error and writes no map files. It no longer writes zeros resembling empty sky.
 - **The RFI mask is now computed, not hardcoded.** The SDR's spurious tone always falls at the band center. The old mask assumed a fixed tuning and missed the shipped flowgraph's spike. Tuning the radio to the hydrogen line would have included that spike in the hydrogen integral.
 - `map_from_csv.py` uses `nearest` interpolation. Gaussian interpolation blurred empty pixels into observed ones, erasing much of a sparse map. Pixels now use their true coordinates, correcting a half-pixel offset. Galactic longitude increases leftward, as in published maps.
@@ -175,9 +175,9 @@ re-run against real telescope data. Reprocess an earlier season's drift scan and
 Run the existing pointing parser checks from the repository root:
 
 ```bash
-python3 data-processing/test_parse_pointing.py
+python3 tests/data-processing/test_parse_pointing.py
 ```
 
 The scripts moved from `dspira/code/observations` without implementation changes.
-Their original MIT notice is retained in [LICENSE.txt](LICENSE.txt).
-The [migration record](../docs/data-processing-migration.json) identifies their source revision and checksums.
+Their original MIT notice is retained in [LICENSE](LICENSE).
+The [migration record](../docs/history/data-processing-migration.json) identifies their source revision and checksums.

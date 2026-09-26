@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Calibrated hydrogen-line spectrometer",
+    "path": "applications/spectrometry/calibrated-spectrometer.grc",
+    "original_filename": "spectrometer_w_cal.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "LimeSDR adding interferometer",
+    "path": "applications/interferometry/limesdr-adding.grc",
+    "original_filename": "interferometer_simpleSpectrometer_Lime_adding.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "LimeSDR multiplying interferometer",
+    "path": "applications/interferometry/limesdr-multiplying.grc",
+    "original_filename": "interferometer_simpleSpectrometer_Lime_multiplying.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "Amplitude-threshold lightning detector",
+    "path": "applications/lightning-detection/amplitude-threshold.grc",
+    "original_filename": "lightning_detector_amplitude.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "Coincident-derivative lightning detector",
+    "path": "applications/lightning-detection/coincident-derivative.grc",
+    "original_filename": "lightning_detector_coincident_deriv.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "Cross-correlation lightning detector",
+    "path": "applications/lightning-detection/cross-correlation-derivative.grc",
+    "original_filename": "lightning_detector_cross_corr_deriv.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  },
+  {
+    "title": "Standard-deviation lightning detector",
+    "path": "applications/lightning-detection/standard-deviation.grc",
+    "original_filename": "lightning_detector_std.grc",
+    "generation": "passed",
+    "runtime_tested": false
+  }
+]

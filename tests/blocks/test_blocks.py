@@ -9,7 +9,7 @@ from gnuradio import dspira
 
 class ClassroomBlocksTest(unittest.TestCase):
     def test_definitions_resolve_to_the_classroom_package(self):
-        root = Path(__file__).resolve().parents[1]
+        root = Path(__file__).resolve().parents[2]
         definitions = list((root / "grc").glob("*.block.yml"))
         self.assertEqual(len(definitions), 12)
         for path in definitions:
@@ -18,6 +18,17 @@ class ClassroomBlocksTest(unittest.TestCase):
             self.assertTrue(callable(getattr(dspira, name)), name)
             self.assertEqual(definition["templates"]["imports"], "from gnuradio import dspira")
             self.assertTrue(definition["templates"]["make"].startswith("dspira."))
+
+    def test_power_spectrum_imports_remain_compatible(self):
+        from gnuradio.dspira.powerSpectrum import powerSpectrum as legacy
+        from gnuradio.dspira.power_spectrum import powerSpectrum as current
+        self.assertIs(legacy, current)
+        self.assertIs(dspira.powerSpectrum, dspira.power_spectrum)
+        block = dspira.power_spectrum(4)
+        data = np.array([[1, 0, -1, 0]], dtype=np.complex64)
+        output = np.zeros_like(data)
+        self.assertEqual(block.work([data], [output]), 1)
+        np.testing.assert_allclose(output, [[0, 4, 0, 4]])
 
     def test_average_handles_a_batch_and_resets(self):
         block = dspira.vector_moving_average(float, 2, 2, False)

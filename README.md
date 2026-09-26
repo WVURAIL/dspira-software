@@ -1,122 +1,39 @@
 # DSPIRA software
 
-Classroom telescope applications for DSPIRA. Start with the
-[software guide](https://wvurail.org/dspira/software/) on the lessons website.
-Watch videos on [DSPIRA's YouTube channel](https://www.youtube.com/@dspira).
+Software for classroom radio telescopes and DSPIRA lessons.
+Start with the [website guide](https://wvurail.org/dspira/software/) or [installation instructions](docs/installation.md).
+Watch demonstrations on [DSPIRA's YouTube channel](https://www.youtube.com/@dspira).
 
-This repository contains the classroom flowgraphs and all twelve DSPIRA processing blocks.
-Install them together from this checkout. A research software checkout is not required.
-Physical designs belong in [dspira-hardware](https://github.com/WVURAIL/dspira-hardware).
+## Find what you need
 
-## Applications
-
-| Files in `flowgraphs/` | Purpose |
+| Folder | Contents |
 | --- | --- |
-| `spectrometer_w_cal.grc` | Hydrogen-line spectrometer with calibration and recording |
-| `interferometer_simpleSpectrometer_Lime_adding.grc` | Two-input adding interferometer for LimeSDR |
-| `interferometer_simpleSpectrometer_Lime_multiplying.grc` | Two-input multiplying interferometer for LimeSDR |
-| `lightning_detector_*.grc` | Four experimental lightning-detection variants |
+| [applications](applications/) | Seven telescope flowgraphs, grouped by observing task |
+| [examples](examples/) | 29 teaching flowgraphs, grouped by DSP topic |
+| [data-processing](data-processing/) | Calibration, sky maps, coordinate conversion, CSV export, and power plots |
+| [python/gnuradio/dspira](python/gnuradio/dspira/) | Twelve GNU Radio processing blocks |
+| [grc](grc/) | GNU Radio Companion definitions for those blocks |
+| [docs](docs/) | Installation, compatibility, block reference, and source history |
+| [tests](tests/) | Processing-block and observation-data checks |
+| [scripts](scripts/) | Catalog and flowgraph validation tools |
+| [licenses](licenses/) | Original notices for teaching examples |
 
-The original migration hashes are preserved in `docs/migration.json`.
-Subsequent compatibility fixes pass generation checks but are not hardware qualification.
-Read [known limitations](docs/KNOWN_ISSUES.md) before
-using these applications with a class.
+Applications and processing blocks install together from this repository.
+A research software checkout is not required.
+The calibrated spectrometer is in `applications/spectrometry/calibrated-spectrometer.grc`.
+Review [compatibility and hardware checks](docs/compatibility.md) before classroom use.
 
-## Install DSPIRA software
+Physical designs belong in [dspira-hardware](https://github.com/WVURAIL/dspira-hardware).
+Lessons, worksheets, and sample datasets belong in [dspira](https://github.com/WVURAIL/dspira).
+See [contribution instructions](CONTRIBUTING.md) for software changes.
 
-These instructions target GNU Radio 3.10 on Ubuntu. Install the dependencies first:
+## Naming and earlier paths
 
-```sh
-sudo apt-get update
-sudo apt-get install gnuradio-dev gr-osmosdr airspy cmake g++ git python3-h5py python3-matplotlib python3-yaml
-```
+Folders, documentation, and flowgraphs use descriptive lowercase names with hyphens.
+Python files and GRC definition files use lowercase names with underscores.
+Standard names such as `README.md`, `LICENSE`, and `CMakeLists.txt` follow their tool conventions.
+Saved GRC identifiers and existing Python entry points remain compatible.
 
-LimeSDR applications also require `gr-limesdr` and a compatible receiver.
-Then clone, build, test, and install:
-
-```sh
-git clone https://github.com/WVURAIL/dspira-software.git
-cd dspira-software
-cmake -S . -B build -DPYTHON_EXECUTABLE=/usr/bin/python3
-cmake --build build
-ctest --test-dir build --output-on-failure
-sudo cmake --install build
-python3 -c "from gnuradio import dspira; print(dspira.__file__)"
-```
-
-Restart GNU Radio Companion and open `flowgraphs/spectrometer_w_cal.grc`.
-The processing blocks appear in its **DSPIRA** category.
-The application files and block implementations have one maintained home here.
-Older GNU Radio 3.8 instructions apply only to historical releases.
-
-Review receiver settings and calibration values before running an application.
-The spectrometer and interferometers save CSV files in your home directory by default.
-Their filename prefixes distinguish spectra, individual horns, and correlation outputs.
-To choose another folder before opening GNU Radio Companion:
-
-```sh
-mkdir -p "$HOME/dspira-data"
-export DSPIRA_OUTPUT_DIR="$HOME/dspira-data"
-gnuradio-companion
-```
-
-The selected folder must exist and be writable. You can also edit the `prefix` variables in the flowgraph.
-Experimental lightning detectors save triggered files in their working directory.
-
-Before updating, preserve local receiver settings and edited flowgraphs.
-Run `git pull --ff-only`, then repeat the build, test, and install commands above.
-
-## Process recorded observations
-
-The [data-processing guide](data-processing/) covers calibration, sky maps, CSV export, and power plots.
-These scripts work with saved HDF5 spectra. They do not require GNU Radio to process existing files.
-Follow the [Observations lesson](https://wvurail.org/dspira/Observations/) for the analysis workflow.
-Lesson notebooks and sample datasets remain in [DSPIRA lesson examples](https://github.com/WVURAIL/dspira/tree/main/lesson-examples).
-
-## Contribute
-
-Open a pull request here for classroom application changes. Include the GNU Radio
-version, receiver model, and a description of the test you performed. Send
-DSPIRA block and observation-processing changes here. Send board designs to `dspira-hardware`.
-Lesson and worksheet contributions belong in [dspira](https://github.com/WVURAIL/dspira).
-
-Run `python3 scripts/check_flowgraphs.py` to check the application catalog.
-This validates file structure and dependency declarations without operating a receiver.
-
-On Ubuntu 24.04, install generation dependencies with:
-
-```sh
-sudo apt-get install gnuradio gr-osmosdr gr-limesdr python3-yaml
-```
-
-After installing DSPIRA, run `scripts/check_generation.py` with this checkout's block definitions:
-
-```sh
-PYTHONNOUSERSITE=1 GRC_BLOCKS_PATH="$PWD/grc" /usr/bin/python3 scripts/check_generation.py
-```
-
-This generates each application separately and checks its Python syntax. It does not open receiver hardware.
-Use the distribution Python environment; incompatible user-installed NumPy versions can prevent GNU Radio from importing.
-
-## History and old links
-
-This is the original `gr-dspira` repository, renamed `dspira-software` on September 25, 2026.
-The current software and both projects' Git histories are retained here.
-
-The application directory history was extracted with `git subtree split`.
-The seven source files were moved from the former `gr-radio_astro/examples/DSPIRA/` directory to `flowgraphs/`.
-The twelve DSPIRA blocks and their existing tests followed in a second migration.
-They were removed from the research repository's main branch.
-See [the migration record](docs/migration.json) for original hashes and the
-[link map](https://wvurail.org/dspira/repository-map/) for replacement addresses.
-Old tagged releases and commit links remain available in the original repository.
-See [block ownership and compatibility](docs/BLOCKS.md) for the remaining identifier conventions.
-
-## DSP lesson examples
-
-The [Fourier series wave explorer](examples/fourier-wave-explorer/) accompanies the classroom Fourier activity.
-It retains its original GNU Radio 3.7 format and MIT notice.
-
-The [institute exercises](examples/institute/) add 29 flowgraphs for signals, Fourier analysis, filters, and receiver demonstrations.
-The catalog separates successful generation checks from examples requiring compatibility updates.
-These files have one home here and are linked from the DSPIRA lessons website.
+The [file map](docs/file-map.json) lists earlier paths and their current replacements.
+Original import paths and checksums remain in [source history](docs/history/).
+This repository retains the original `gr-dspira` history under the `dspira-software` name.

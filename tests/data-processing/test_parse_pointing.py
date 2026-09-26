@@ -1,8 +1,8 @@
 """Checks the pointing strings the hdf5_sink block actually produces.
 
-Run it from this directory, no arguments:
+Run it from the repository root:
 
-    python3 test_parse_pointing.py
+    python3 tests/data-processing/test_parse_pointing.py
 
 The pointing box in the GNU Radio hdf5_sink block is free text - whatever the
 observer types goes into the file. The parser's contract is: read the string
@@ -21,7 +21,10 @@ the lesson learned: most of these cases are strings the parser must refuse.
 """
 
 import sys
-from map_h1_hdf5_drift import parse_pointing
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "data-processing"))
+from map_hydrogen_drift import parse_pointing
 
 ACCEPTED = [
     # (pointing string, expected (az, el), note)
