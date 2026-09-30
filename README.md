@@ -1,7 +1,7 @@
 # DSPIRA software
 
 Software for classroom radio telescopes and DSPIRA lessons.
-Start with the [website guide](https://wvurail.org/dspira/software/) or [installation instructions](docs/installation.md).
+Start with the [website guide](https://rail.wvu.edu/dspira/software/) or [installation instructions](docs/installation.md).
 Watch demonstrations on [DSPIRA's YouTube channel](https://www.youtube.com/@dspira).
 
 ## Find what you need
