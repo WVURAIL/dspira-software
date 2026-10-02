@@ -58,12 +58,16 @@ class systemp_calibration(gr.sync_block):
         self.tcold = 10
     
     def work(self, input_items, output_items):
-        in0 = input_items[0]
-        out0 = output_items[0]
-        out1 = output_items[1]
-        out2 = output_items[2]
+        count = min([len(input_items[0])] +
+                    [len(output) for output in output_items])
+        for row in range(count):
+            self._process_spectrum(input_items[0][row],
+                                   output_items[0][row],
+                                   output_items[1][row],
+                                   output_items[2][row])
+        return count
 
-        # <+signal processing here+>
+    def _process_spectrum(self, in0, out0, out1, out2):
         if self.collect == "cal":
             out0[:] = in0/(self.gain) - self.tsys
         elif self.collect == "hot":
@@ -89,7 +93,6 @@ class systemp_calibration(gr.sync_block):
         out1[:] = self.gain
         out2[:] = self.tsys
 
-        return len(output_items[0])
 
     def set_parameters(self, collect):
         self.collect = collect

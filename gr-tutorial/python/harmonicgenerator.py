@@ -40,15 +40,18 @@ class harmonicgenerator(gr.sync_block):
             out_sig=n_outputs*[(numpy.float32, vec_length)])
 
     def work(self, input_items, output_items):
-        self.i += self.vec_length
+        count = min(len(output) for output in output_items)
+        samples = (self.i + self.vec_length +
+                   numpy.arange(count)[:, None] * self.vec_length)
         for m in range(self.n_outputs):
             out = output_items[m]
-            out[:] = self.ampl[m]*numpy.sin(2*numpy.pi*self.n_harmonics[m]*self.f0*self.i/self.samprate)
+            out[:count] = self.ampl[m]*numpy.sin(2*numpy.pi*self.n_harmonics[m]*self.f0*samples/self.samprate)
             # out[0] = output_items[0]
             # out[1] = output_items[1]
             # out[0] = numpy.sin(2*numpy.pi*self.f0*self.i/self.samprate)
             # out[1] = numpy.sin(2*numpy.pi*self.n*self.f0*self.i/self.samprate)
-        return len(output_items[:])
+        self.i += count * self.vec_length
+        return count
 
     def set_amplitude(self, amplitude):
         self.ampl = amplitude

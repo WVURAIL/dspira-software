@@ -19,6 +19,7 @@
 # Boston, MA 02110-1301, USA.
 # 
 
+import numpy
 from gnuradio import gr, gr_unittest
 from gnuradio import blocks
 from harmonicgenerator import harmonicgenerator
@@ -31,10 +32,23 @@ class qa_harmonicgenerator (gr_unittest.TestCase):
     def tearDown (self):
         self.tb = None
 
-    def test_001_t (self):
-        # set up fg
-        self.tb.run ()
-        # check data
+    def test_batch_advances_every_vector_and_reports_items(self):
+        block = harmonicgenerator(2, 4, [1.0, 0.5], 1, [1, 3], 40)
+        first = [numpy.empty((3, 4), numpy.float32) for _ in range(2)]
+        second = [numpy.empty((2, 4), numpy.float32) for _ in range(2)]
+        self.assertEqual(block.work([], first), 3)
+        self.assertEqual(block.work([], second), 2)
+        samples = numpy.arange(4, 24).reshape(5, 4)
+        for port, amplitude, harmonic in [(0, 1.0, 1), (1, 0.5, 3)]:
+            expected = amplitude * numpy.sin(2 * numpy.pi * harmonic * samples / 40)
+            numpy.testing.assert_allclose(
+                numpy.concatenate([first[port], second[port]]), expected, atol=1e-6)
+
+    def test_empty_output_preserves_phase(self):
+        block = harmonicgenerator(1, 4, [1.0], 1, [1], 40)
+        phase = block.i.copy()
+        self.assertEqual(block.work([], [numpy.empty((0, 4), numpy.float32)]), 0)
+        numpy.testing.assert_array_equal(block.i, phase)
 
 
 if __name__ == '__main__':

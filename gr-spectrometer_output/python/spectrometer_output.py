@@ -48,9 +48,11 @@ class spectrometer_output(gr.sync_block):
         out0 = output_items[0]
 
         # <+signal processing here+>
-        self.i += 1
-        out0[:] = self.ampl*np.sin(2*np.pi*self.f0*self.i/self.samp_rate)
-        return len(output_items[:])
+        count = len(out0)
+        samples = self.i + np.arange(1, count + 1)
+        out0[:] = self.ampl*np.sin(2*np.pi*self.f0*samples/self.samp_rate)
+        self.i += count
+        return count
     
     def set_save_button(self, f0_gui, ampl_gui, text_gui, save_button_gui):
         if save_button_gui == True:
